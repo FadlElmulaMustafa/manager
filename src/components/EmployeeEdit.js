@@ -9,7 +9,8 @@ import {
     onPhoneTextChanged, 
     onShiftPickerChanged, 
     employeeSave, 
-    employeeDelete 
+    employeeDelete,
+    emptyState
 } from '../actions';
 
 
@@ -29,6 +30,10 @@ class EmployeeEdit extends Component {
         this.props.onNameTextChanged(data.name);
         this.props.onPhoneTextChanged(data.phone);
         this.props.onShiftPickerChanged(data.shift);
+    }
+
+    componentWillUnmount(){
+        this.props.emptyState();
     }
 
     onButtonPress(){
@@ -91,5 +96,7 @@ export default connect(mapStateToProps, {
     onPhoneTextChanged,
     onShiftPickerChanged,
     employeeSave,
-    employeeDelete
+    employeeDelete,
+    emptyState
+
 })(EmployeeEdit);

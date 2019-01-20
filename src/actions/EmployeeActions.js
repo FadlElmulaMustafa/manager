@@ -9,7 +9,11 @@ import {
 } from "./types";
 import { ActionConst, Actions } from 'react-native-router-flux';
 
-
+export const emptyState = () => {
+    return {
+        type : EMPLOYEE_SAVE_SUCCESS
+    }
+}
 export const onNameTextChanged = (text) => {
     return {
         type: NAME_TEXT_CHANGE,

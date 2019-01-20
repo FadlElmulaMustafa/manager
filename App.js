@@ -36,6 +36,8 @@ export default class App extends React.Component {
 
 const styles = {
   container: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    alignItem: 'center'
   },
 };
