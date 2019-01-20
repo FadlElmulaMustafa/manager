@@ -1,19 +1,26 @@
 //import liraries
 import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import { CardSection } from './common';
+import { Actions } from 'react-native-router-flux';
 
 // create a component
 class ListItem extends Component {
-   
+    onRowPress() {
+        Actions.EmployeeEdit({ employee: this.props.employee });
+    }
     render() {
         const { name } = this.props.employee;
         return (
-            <CardSection >
-                <Text style={styles.titleStyle}>
-                    {name}
-                </Text>
-            </CardSection>
+            <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
+                <View>
+                    <CardSection >
+                        <Text style={styles.titleStyle}>
+                            {name}
+                        </Text>
+                    </CardSection>
+                </View>
+            </TouchableWithoutFeedback>
         );
     }
 }

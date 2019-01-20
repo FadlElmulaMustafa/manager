@@ -25,7 +25,7 @@ export default class App extends React.Component {
 
     return (
       <Provider store={store}>
-        <View style={styles.container}>
+        <View style={styles.container}> 
           <Router/>    
         </View>
       </Provider>
@@ -36,8 +36,6 @@ export default class App extends React.Component {
 
 const styles = {
   container: {
-    flex: 1,
-    backgroundColor: '#C2D793',
-    justifyContent: 'center',
+    flex: 1
   },
 };

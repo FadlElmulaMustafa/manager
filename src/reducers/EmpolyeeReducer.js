@@ -3,7 +3,7 @@ import {
     PHONE_TEXT_CHANGE,
     SHIFT_TEXT_CHANGE, 
     CREATE_USER_EMPLOYEE,
-    EMPLOYEE_FETCH_SUCCESS
+    EMPLOYEE_SAVE_SUCCESS
 } from '../actions/types';
 
 INITIAL_STATE = {
@@ -22,6 +22,8 @@ export default (state = INITIAL_STATE, action ) => {
             return {...state, shift: action.payload}
         case CREATE_USER_EMPLOYEE:
             return {...INITIAL_STATE}
+        case EMPLOYEE_SAVE_SUCCESS:
+            return INITIAL_STATE;
         default: return state;
     }
 

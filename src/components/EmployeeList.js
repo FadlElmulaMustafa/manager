@@ -1,10 +1,11 @@
 //import liraries
 import  _ from 'lodash';
 import React, { Component } from 'react';
-import { ListView, View, Text} from 'react-native';
+import { ListView } from 'react-native';
 import { connect } from 'react-redux';
 import { employeeFetch } from '../actions';
 import ListItem  from './ListItem';
+import { ScrollView } from 'react-native-gesture-handler';
 
 // create a component
 class EmployeeList extends Component {
@@ -34,11 +35,13 @@ class EmployeeList extends Component {
     render() {
 
         return (
-           <ListView
-                enableEmptySections
-                dataSource={this.dataSource}
-                renderRow={this.renderRow}
-           />
+            <ScrollView  style={{flex: 1}}>
+                <ListView  style={{flex: 1}}
+                    enableEmptySections
+                    dataSource={this.dataSource}
+                    renderRow={this.renderRow}
+                />
+            </ScrollView>
         );
     }
 }

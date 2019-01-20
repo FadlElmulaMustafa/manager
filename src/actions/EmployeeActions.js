@@ -4,7 +4,8 @@ import {
     NAME_TEXT_CHANGE,
     PHONE_TEXT_CHANGE,
     CREATE_USER_EMPLOYEE,
-    EMPLOYEE_FETCH_SUCCESS
+    EMPLOYEE_FETCH_SUCCESS,
+    EMPLOYEE_SAVE_SUCCESS
 } from "./types";
 import { ActionConst, Actions } from 'react-native-router-flux';
 
@@ -48,6 +49,19 @@ export const employeeFetch = () => {
         firebase.database().ref(`/users/${currentUser.uid}/employees`)
         .on('value', snapshot => {
             dispatch({ type: EMPLOYEE_FETCH_SUCCESS, payload: snapshot.val() });
+        });
+    }
+}
+
+export const employeeSave = ({ name, phone, shift, uid }) => {
+    const { currentUser } = firebase.auth();
+
+    return (dispatch) => {
+        firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+        .set({ name, phone, shift })
+        .then(()=> {
+            dispatch({type: EMPLOYEE_SAVE_SUCCESS});
+            Actions.employeeList({ type: ActionConst.RESET});
         });
     }
 }
