@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Router, Scene, Actions } from 'react-native-router-flux';
+import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import EmployeeList from './components/EmployeeList';
 import EmployeeCreate from './components/EmployeeCreate';
@@ -17,7 +17,7 @@ const RouterComponent = () => {
 
             <Scene key="main">
                 <Scene 
-                    onRight={() => Actions.EmployeeCreate()}  
+                    onRight={() => Actions.EmployeeCreate({ type: ActionConst.RESET})}  
                     rightTitle="Add"
                     key="employeeList" 
                     component={EmployeeList} 
